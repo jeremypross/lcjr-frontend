@@ -38,3 +38,10 @@ h1,h2,h3 {
 .form-container {
   text-align: center;
 }
+
+.post {
+  text-align: center;
+  padding: 5px;
+  border: 2px solid black;
+  margin: 0 40px;
+}

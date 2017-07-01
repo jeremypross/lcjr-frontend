@@ -46,7 +46,7 @@ class SignUp extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    console.log(this.state);
+    console.log("this.state.post", this.state.post);
 
     fetch(`http://localhost:3000/users`, {
       method: "POST",
@@ -66,11 +66,11 @@ class SignUp extends Component {
 
   render(){
     return(
-      <div id="signup-form">
+      <div>
         <div className="container">
           <div className="form-container">
-            <h1>CREATE AN ACCOUNT</h1>
             <Nav />
+            <h3>CREATE AN ACCOUNT</h3>
             <form onSubmit={this.handleSubmit.bind(this)}>
               <input name="first_name" type="text" placeholder="First Name" onChange={this.handleChange.bind(this)} /><br/>
               <input name="last_name" type="text" placeholder="Last Name" onChange={this.handleChange.bind(this)} /><br/>

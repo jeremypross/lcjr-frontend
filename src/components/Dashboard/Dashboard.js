@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import update from "react-addons-update";
 import { browserHistory } from "react-router";
 
 import UserNav from "../Nav/UserNav";
@@ -32,7 +33,7 @@ class Dashboard extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-        // this.setState({ articles: data.data });
+        this.setState({ posts: data.data });
         this.setState({ user_id: data.user_id });
         window.localStorage.setItem('user_id', this.state.user_id);
       });
@@ -45,7 +46,7 @@ class Dashboard extends Component {
 
   handleChange(event) {
     let newState = update(this.state, {
-      source: {
+      post: {
         $merge: {
           [event.target.name]: event.target.value
         }
@@ -63,6 +64,9 @@ class Dashboard extends Component {
     if(window.localStorage.getItem('loggedin')) {
       fetch(`http://localhost:3000/posts`, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
           post: {
             title: `${this.state.post.title}`,
@@ -72,13 +76,14 @@ class Dashboard extends Component {
             user_id: window.localStorage.getItem('user_id')
           }
         }),
-        headers: {
-          "Content-Type": "application/json"
-        }
       })
-      .then(() => {
-        // push to dashboard
-        this.props.router.push('/dashboard');
+      .then((results) => {
+        results.json().then((data) => {
+          this.setState({ post: data})
+          console.log("DATA", data)
+          // push to dashboard
+          this.props.router.push('/dashboard');
+        });
       })
       .catch((err) => {
         console.log("ERROR", err);
@@ -91,21 +96,18 @@ class Dashboard extends Component {
 
   render() {
     return(
-      <div id="dashboard">
+      <div id="main-page">
         <UserNav />
         <div className="form-container">
-          <form>
-            <h3>Add Post:</h3>
-            <input name="title" value={this.state.post.title} placeholder="title" onChange={this.handleChange.bind(this)}></input><br/>
-            <input name="image_url" value={this.state.post.image_url} placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
-            <input name="source_url" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
-            <input name="category" placeholder="Category" onChange={this.handleChange.bind(this)}></input><br/>
-            <input type="submit" value="Submit" onClick={this.handleSubmit.bind(this)}></input>
+          <h3>Add Post:</h3>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
+            <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
+            <input name="source_url" type="text" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
+            <input name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)}></input><br/>
+            <button type="submit">Submit</button>
           </form>
         </div>
-
-
-
       </div>
     );
   }

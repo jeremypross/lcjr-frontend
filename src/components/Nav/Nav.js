@@ -28,9 +28,13 @@ class Nav extends Component {
   render() {
     return (
       <div id="nav">
+        <h1>LC / JR Project</h1>
         <ul id="nav-bar">
           <li>
             <Link className="nav-link" to="/">HOME</Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="#">POSTS</Link>
           </li>
           <li>
             <Link className="nav-link" to="/signup">SIGN UP</Link>
