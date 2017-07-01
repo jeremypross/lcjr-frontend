@@ -57,7 +57,7 @@ class Login extends Component {
       <div>
         <div id="login-form">
           <div className="container">
-            <h3>LOG IN</h3>
+            <h1>LOG IN</h1>
             <Nav />
             <div className="form-container">
               <form onSubmit={this.handleSubmit.bind(this)}>

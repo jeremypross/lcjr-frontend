@@ -69,7 +69,7 @@ class SignUp extends Component {
       <div id="signup-form">
         <div className="container">
           <div className="form-container">
-            <h3>CREATE AN ACCOUNT</h3>
+            <h1>CREATE AN ACCOUNT</h1>
             <Nav />
             <form onSubmit={this.handleSubmit.bind(this)}>
               <input name="first_name" type="text" placeholder="First Name" onChange={this.handleChange.bind(this)} /><br/>
