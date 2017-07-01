@@ -1,0 +1,34 @@
+* {
+  font-family: "helvetica", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#main-page {
+  background-color: lightgray;
+}
+
+/* NAV */
+
+#nav {
+  text-align: center;
+
+}
+
+#nav ul {
+  display: inline-block;
+  list-style-type: none;
+  position: relative;
+  padding-left: 0;
+}
+
+#nav-bar li {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+}
