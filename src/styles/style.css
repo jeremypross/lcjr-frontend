@@ -4,19 +4,40 @@
 
 h1,h2,h3 {
   margin: 0 auto;
-  padding-top: 15px;
+  padding: 15px 0;
   text-align: center;
 }
 
+input {
+  margin: 5px 0;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 1.3em;
+  color: gray;
+}
+
+input:focus {
+  color: black;
+  outline: none;
+}
+
 #main-page {
-  background-color: lightgray;
+  /*background-color: lightgray;*/
+  z-index: 2;
+}
+
+#blog-roll {
+  margin-top: 85px;
 }
 
 /* NAV */
 
 #nav {
   text-align: center;
-
+  background-color: lightgray;
+  z-index: 5;
+  position: fixed;
+  width: 100%;
 }
 
 #nav ul {
@@ -39,9 +60,26 @@ h1,h2,h3 {
   text-align: center;
 }
 
+form {
+  margin-top: 85px;
+}
+
 .post {
   text-align: center;
   padding: 5px;
   border: 2px solid black;
-  margin: 0 40px;
+  border-radius: 4px;
+  margin: 15px 40px;
+}
+
+.authored_posts {
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: 10px 40px;
+  padding: 20px;
+}
+
+#dashboard-posts-container {
+
 }

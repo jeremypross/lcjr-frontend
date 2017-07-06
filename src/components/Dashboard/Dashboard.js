@@ -3,7 +3,7 @@ import update from "react-addons-update";
 import { browserHistory } from "react-router";
 
 import UserNav from "../Nav/UserNav";
-
+import AuthoredPost from "../Dashboard/AuthoredPost";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -16,34 +16,6 @@ class Dashboard extends Component {
     };
   }
 
-  // checks for Token in localStorage - if no token push user to dashboard
-  componentWillMount() {
-    if (!localStorage.getItem('MyToken')) {
-      browserHistory.push('/login');
-    }
-  }
-
-  // GET request to authorize token for dashboard access and find all users's saved recipes
-  componentDidMount() {
-    fetch('http://localhost:3000/users/dashboard', {
-      method: "GET",
-      headers: {
-        "Authorization": window.localStorage.getItem("MyToken")
-      }
-    })
-    .then((results) => {
-      results.json().then((data) => {
-        this.setState({ posts: data.data });
-        this.setState({ user_id: data.user_id });
-        window.localStorage.setItem('user_id', this.state.user_id);
-      });
-    })
-    .catch((err) => {
-      console.log("ERROR:", err);
-      browserHistory.push('/login');
-    });
-  }
-
   handleChange(event) {
     let newState = update(this.state, {
       post: {
@@ -54,6 +26,38 @@ class Dashboard extends Component {
     });
 
     this.setState(newState);
+  }
+
+  // checks for Token in localStorage - if no token push user to dashboard
+  componentWillMount() {
+    if (!localStorage.getItem('MyToken')) {
+      browserHistory.push('/login');
+    } else {
+      this.setState({ user_id: window.localStorage.getItem('user_id')})
+    }
+  }
+
+  // GET request to authorize token for dashboard access and find all users's saved recipes
+  componentDidMount() {
+    fetch(`http://localhost:3000/posts/${this.state.user_id}`, {
+      method: "GET",
+      headers: {
+        "Authorization": window.localStorage.getItem("MyToken")
+      }
+    })
+    .then((results) => {
+      results.json().then((data) => {
+        // this.setState({ user_id: window.localStorage.getItem('user_id') });
+        this.setState({ posts: data.posts }); // NEW LINE
+        console.log("DATA", this.state.posts);
+        console.log("AUTHORED POSTS USER ID", this.state.user_id)
+        // window.localStorage.setItem('user_id', this.state.user_id);
+      });
+    })
+    .catch((err) => {
+      console.log("ERROR:", err);
+      browserHistory.push('/login');
+    });
   }
 
   handleSubmit(event) {
@@ -107,6 +111,21 @@ class Dashboard extends Component {
             <input name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)}></input><br/>
             <button type="submit">Submit</button>
           </form>
+        </div>
+        <div>
+          {this.state.posts.map((post) => {
+            return(
+              <div key={post.id}>
+                <AuthoredPost
+                  title={post.title}
+                  image_url={post.image_url}
+                  source_url={post.source_url}
+                  image_url={post.image_url}
+                  category={post.category}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );

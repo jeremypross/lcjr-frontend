@@ -9,7 +9,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Login from "./components/Users/Login";
 import Signup from "./components/Users/Signup";
 import Dashboard from "./components/Dashboard/Dashboard";
-import SavedPost from "./components/Dashboard/SavedPost";
+import SavedPost from "./components/Dashboard/AuthoredPost";
 
 ReactDom.render(
   <Router history={browserHistory}>

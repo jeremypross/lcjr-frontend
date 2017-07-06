@@ -32,12 +32,12 @@ class Homepage extends Component {
       <div id="main-page">
           <Nav />
           <h2>Posts:</h2>
-          <div>
+          <div id="blog-roll">
             {this.state.posts.map((post) => {
               return(
                 <div key={post.id} className="post">
                   <h3>{post.title}</h3>
-                  <img src={post.image_url} width="200"/>
+                  <img src={post.image_url} width="275"/>
                   <p>Source: <a href={post.source_url}>{post.source_url}</a><br/></p>
                   <p>Category: {post.category}</p>
                 </div>
