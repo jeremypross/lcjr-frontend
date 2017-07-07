@@ -4,8 +4,7 @@
 
 h1,h2,h3 {
   margin: 0 auto;
-  padding: 15px 0;
-  text-align: center;
+  padding: 15px;
 }
 
 input {
@@ -26,10 +25,6 @@ input:focus {
   z-index: 2;
 }
 
-#blog-roll {
-  margin-top: 85px;
-}
-
 /* NAV */
 
 #nav {
@@ -38,6 +33,7 @@ input:focus {
   z-index: 5;
   position: fixed;
   width: 100%;
+  opacity: .8;
 }
 
 #nav ul {
@@ -64,12 +60,25 @@ form {
   margin-top: 85px;
 }
 
+.blog-roll {
+  text-align: center;
+  margin-top: 85px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .post {
   text-align: center;
-  padding: 5px;
-  border: 2px solid black;
+  padding: 25px;
+  border: 2px dotted black;
   border-radius: 4px;
-  margin: 15px 40px;
+  margin: 20px;
+  flex: 0;
+}
+
+.post:hover {
+  border: 4px solid gray;
+  transition: .5s;
 }
 
 .authored_posts {
@@ -80,6 +89,13 @@ form {
   padding: 20px;
 }
 
-#dashboard-posts-container {
+.dashboard-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin: 20px 200px;
+}
 
+.dashboard-item {
+  flex: 6;
 }

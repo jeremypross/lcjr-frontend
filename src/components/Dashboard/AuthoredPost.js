@@ -43,7 +43,7 @@ class AuthoredPost extends Component {
 
   editPost(event) {
     const user_id = window.localStorage.getItem('user_id');
-    fetch(`http://localhost:3000/posts/${this.props.id}/${user_id}`, {
+    fetch(`http://localhost:3000/posts/${this.props.id}/${this.props.user_id}`, {
       method: "PUT",
       body: JSON.stringify({ }),
       headers: {
@@ -79,14 +79,12 @@ class AuthoredPost extends Component {
           <p>Source: <a href={this.props.source_url}>{this.props.source_url}</a></p>
           <p>Category: {this.props.category}</p>
           <Link to="/dashboard">
-            <button onClick={this.handleDelete.bind(this)}>Remove Post</button>
+            <button onClick={this.handleDelete.bind(this)}>Delete Post</button>
           </Link>
         </div>
       </div>
-    )
-
+    );
   }
-
 }
 
 export default AuthoredPost;

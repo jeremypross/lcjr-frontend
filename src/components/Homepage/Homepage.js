@@ -31,8 +31,8 @@ class Homepage extends Component {
     return (
       <div id="main-page">
           <Nav />
-          <h2>Posts:</h2>
-          <div id="blog-roll">
+          <h2></h2>
+          <div className="blog-roll">
             {this.state.posts.map((post) => {
               return(
                 <div key={post.id} className="post">

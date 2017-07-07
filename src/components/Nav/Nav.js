@@ -6,29 +6,31 @@ class Nav extends Component {
     super(props);
 
     this.state = {
-      // loggedIn: {
-      //   display: 'none'
-      // },
-      // loggedOut: {
-      //   display: 'inline-block'
-      // }
+      loggedIn: {
+        display: 'none'
+      },
+      loggedOut: {
+        display: 'inline-block'
+      },
+      logged: "false"
     };
   }
 
-  // componentDidMount() {
-  //   if(window.localStorage.getItem('loggedin')) {
-  //     this.setState({loggedOut: {display: 'none'}});
-  //     this.setState({loggedIn: {display: 'inline-block'}});
-  //   } else {
-  //     this.setState({loggedIn: {display: 'none'}});
-  //     this.setState({loggedOut:{display: 'inline-block'}});
-  //   }
-  // }
+  componentDidMount() {
+    if(window.localStorage.getItem('loggedin')) {
+      this.setState({loggedOut: {display: 'none'}});
+      this.setState({loggedIn: {display: 'inline-block'}});
+      this.setState({logged: true });
+    } else {
+      this.setState({loggedIn: {display: 'none'}});
+      this.setState({loggedOut:{display: 'inline-block'}});
+    }
+  }
 
   render() {
     return (
       <div id="nav">
-        <h1>(LC & JR Project)</h1>
+        <h1>LCJR</h1>
         <ul id="nav-bar">
           <li>
             <Link className="nav-link" to="/">HOME</Link>
@@ -39,6 +41,7 @@ class Nav extends Component {
           <li>
             <Link className="nav-link" to="/login">LOG IN</Link>
           </li>
+
         </ul>
       </div>
     );

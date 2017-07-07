@@ -86,7 +86,7 @@ class Dashboard extends Component {
           this.setState({ post: data})
           console.log("DATA", data)
           // push to dashboard
-          this.props.router.push('/dashboard');
+          this.props.router.push('/');
         });
       })
       .catch((err) => {
@@ -108,20 +108,29 @@ class Dashboard extends Component {
             <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="source_url" type="text" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
-            <input name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)}></input><br/>
+            <select name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
+              <option value="">Category:</option>
+              <option value="Art">Art</option>
+              <option value="Architecture & Design">Architecture & Design</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Food">Food</option>
+              <option value="Music">Music</option>
+            </select>
             <button type="submit">Submit</button>
           </form>
         </div>
-        <div>
+        <div className="dashboard-container">
           {this.state.posts.map((post) => {
             return(
-              <div key={post.id}>
+              <div key={post.id} className="dashboard-item">
                 <AuthoredPost
                   title={post.title}
                   image_url={post.image_url}
                   source_url={post.source_url}
                   image_url={post.image_url}
                   category={post.category}
+                  id={post.id}
+                  user_id={post.user_id}
                 />
               </div>
             );
