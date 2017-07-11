@@ -39,7 +39,7 @@ class Dashboard extends Component {
 
   // GET request to authorize token for dashboard access and find all users's saved recipes
   componentDidMount() {
-    fetch(`http://localhost:3000/posts/${this.state.user_id}`, {
+    fetch(`http://localhost:3000/users/${this.state.user_id}/dashboard`, {
       method: "GET",
       headers: {
         "Authorization": window.localStorage.getItem("MyToken")
