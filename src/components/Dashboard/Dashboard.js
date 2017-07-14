@@ -102,8 +102,8 @@ class Dashboard extends Component {
     return(
       <div id="main-page">
         <UserNav />
+        <h3>Add Post:</h3>
         <div className="form-container">
-          <h3>Add Post:</h3>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>

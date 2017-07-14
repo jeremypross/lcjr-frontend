@@ -10,6 +10,7 @@ import Login from "./components/Users/Login";
 import Signup from "./components/Users/Signup";
 import Dashboard from "./components/Dashboard/Dashboard";
 import SavedPost from "./components/Dashboard/AuthoredPost";
+import EditPost from "./components/Dashboard/EditPost";
 
 ReactDom.render(
   <Router history={browserHistory}>
@@ -17,6 +18,7 @@ ReactDom.render(
     <Route path="/signup" component={Signup} />
     <Route path="/login" component={Login} />
     <Route path="/dashboard" component={Dashboard} />
+    <Route path="/dashboard/edit" component={EditPost} />
   </Router>
   , document.getElementById("app")
 );

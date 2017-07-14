@@ -78,6 +78,9 @@ class AuthoredPost extends Component {
           <img src={this.props.image_url} width="300" />
           <p>Source: <a href={this.props.source_url}>{this.props.source_url}</a></p>
           <p>Category: {this.props.category}</p>
+          <Link to="/dashboard/edit">
+            <button>Edit Post</button>
+          </Link>
           <Link to="/dashboard">
             <button onClick={this.handleDelete.bind(this)}>Delete Post</button>
           </Link>
