@@ -10,7 +10,7 @@ class EditPost extends Component {
 
     this.state = {
       post: {},
-      id: 0
+      id: 26
     }
   }
 
@@ -24,6 +24,7 @@ class EditPost extends Component {
     });
 
     this.setState(newState);
+    console.log("NEW STATE after handle change", this.state.post)
   }
 
   componentDidMount() {
@@ -31,22 +32,47 @@ class EditPost extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: this.state.post.title
-      })
+      }
     })
-    .then(() => {
-      this.setState({ post: this.state.post });
+    .then((results) => {
+      results.json().then((data) => {
+        this.setState({ post: data.post });
+        this.setState({ id: data.post.id })
+        console.log("THIS.STATE.POST", this.state.post)
+      })
     })
     .catch((err) => {
       console.log("ERROR", err);
     });
   }
 
-  // editPost() {
-  //
-  // }
+  editPost(event) {
+    const user_id = window.localStorage.getItem('user_id');
+    fetch(`http://localhost:3000/posts/${this.state.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        post: {
+          title: this.state.post.title,
+          image_url: this.state.post.image_url,
+          source_url: this.state.post.source_url,
+          category: this.state.post.category,
+          user_id: user_id
+        }
+      })
+    })
+    .then((results) => {
+      results.json().then((data) => {
+        this.setState({ post: data });
+        console.log("EDIT POST data in PROMISE", data);
+      })
+    })
+    .catch((err) => {
+      console.log("ERROR", err);
+    })
+  }
 
   render() {
     return(
@@ -54,8 +80,16 @@ class EditPost extends Component {
         <UserNav />
         <h3>Edit Post:</h3>
         <div className="form-container">
-          <form>
-            <input name="title" onChange={this.handleChange.bind(this)}></input>
+          <form onSubmit={this.editPost.bind(this)}>
+            <p>Title</p>
+            <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)}></input><br />
+            <p>Source URL</p>
+            <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)}></input><br />
+            <p>Image URL</p>
+            <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)}></input><br />
+            <p>Category</p>
+            <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br />
+            <button type="submit">Edit Post</button>
           </form>
         </div>
 

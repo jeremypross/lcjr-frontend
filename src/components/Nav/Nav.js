@@ -30,7 +30,7 @@ class Nav extends Component {
   render() {
     return (
       <div id="nav">
-        <h1>LCJR</h1>
+        <h1>VAN ROSS</h1>
         <ul id="nav-bar">
           <li>
             <Link className="nav-link" to="/">HOME</Link>

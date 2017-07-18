@@ -9,7 +9,8 @@ class AuthoredPost extends Component {
     this.state = {
       isVisible: {
         display: "block"
-      }
+      },
+      post: {}
     };
   }
 
@@ -23,29 +24,19 @@ class AuthoredPost extends Component {
     this.setState(newState);
   }
 
-  // componentDidMount() {
-  //   fetch(`http://localhost:3000/users/${this.state.user_id}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify(this.state)
-  //   })
-  //   .the((results) => {
-  //     results.json().then((data) => {
-  //       this.setState({ posts: data.data });
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     console.log("ERROR:", err);
-  //   })
-  // }
-
   editPost(event) {
     const user_id = window.localStorage.getItem('user_id');
     fetch(`http://localhost:3000/posts/${this.props.id}/${this.props.user_id}`, {
       method: "PUT",
-      body: JSON.stringify({ }),
+      body: JSON.stringify({
+        post: {
+          title: this.state.post.title,
+          image_url: this.state.post.image_url,
+          source_url: this.state.post.source_url,
+          category: this.state.post.category,
+          user_id: user_id
+        }
+      }),
       headers: {
         "Content-Type": "application/json"
       }
@@ -72,7 +63,7 @@ class AuthoredPost extends Component {
 
   render() {
     return(
-      <div style={this.state.isVisible}>
+      <div key={this.props.id} style={this.state.isVisible}>
         <div className="authored_posts">
           <h3>{this.props.title}</h3>
           <img src={this.props.image_url} width="300" />
@@ -88,6 +79,7 @@ class AuthoredPost extends Component {
       </div>
     );
   }
+
 }
 
 export default AuthoredPost;

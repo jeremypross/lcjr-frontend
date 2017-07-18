@@ -4,6 +4,7 @@ import { browserHistory } from "react-router";
 
 import UserNav from "../Nav/UserNav";
 import AuthoredPost from "../Dashboard/AuthoredPost";
+import EditPost from "../Dashboard/EditPost";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -116,7 +117,7 @@ class Dashboard extends Component {
               <option value="Food">Food</option>
               <option value="Music">Music</option>
             </select>
-            <button type="submit">Submit</button>
+            <button type="submit">Add Post</button>
           </form>
         </div>
         <div className="dashboard-container">
@@ -132,6 +133,15 @@ class Dashboard extends Component {
                   id={post.id}
                   user_id={post.user_id}
                 />
+                {/* <EditPost
+                  title={post.title}
+                  image_url={post.image_url}
+                  source_url={post.source_url}
+                  image_url={post.image_url}
+                  category={post.category}
+                  id={post.id}
+                  user_id={post.user_id}
+                /> */}
               </div>
             );
           })}
