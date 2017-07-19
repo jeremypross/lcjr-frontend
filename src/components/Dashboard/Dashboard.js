@@ -75,6 +75,7 @@ class Dashboard extends Component {
         body: JSON.stringify({
           post: {
             title: `${this.state.post.title}`,
+            post_text: `${this.state.post.post_text}`,
             image_url: `${this.state.post.image_url}`,
             source_url: `${this.state.post.source_url}`,
             category: `${this.state.post.category}`,
@@ -105,9 +106,10 @@ class Dashboard extends Component {
         <UserNav />
         <h3></h3>
         <div className="form-container">
-          <h3></h3>
           <form onSubmit={this.handleSubmit.bind(this)}>
+            <h3>Add Post</h3>
             <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
+            <input name="post_text" type="text" placeholder="Post Text" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="source_url" type="text" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
             <select name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
@@ -118,6 +120,8 @@ class Dashboard extends Component {
               <option value="Food">Food</option>
               <option value="Music">Music</option>
             </select>
+            <br />
+            <br />
             <button type="submit">Add Post</button>
           </form>
         </div>
@@ -128,6 +132,7 @@ class Dashboard extends Component {
                 <div className="dashboard-item">
                 <AuthoredPost
                   title={post.title}
+                  post_text={post.post_text}
                   image_url={post.image_url}
                   source_url={post.source_url}
                   image_url={post.image_url}
@@ -140,6 +145,7 @@ class Dashboard extends Component {
                 <EditPost
                   id={post.id}
                   title={post.title}
+                  post_text={post.text}
                   source_url={post.source_url}
                   image_url={post.image_url}
                   category={post.category}

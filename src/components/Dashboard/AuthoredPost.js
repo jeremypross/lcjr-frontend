@@ -42,6 +42,7 @@ class AuthoredPost extends Component {
         <div className="authored_posts">
           <h3>{this.props.title}</h3>
           <img src={this.props.image_url} width="90%" />
+          <p>{this.props.post_text}</p>
           <p>Source: <a href={this.props.source_url}>{this.props.source_url}</a></p>
           <p>Category: {this.props.category}</p>
           <Link to="/dashboard">

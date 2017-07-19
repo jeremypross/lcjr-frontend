@@ -85,14 +85,14 @@ form {
 .authored_posts {
   text-align: center;
   border: 1px dotted gray;
-  margin: 10px 40px;
+  margin: 20px 20px;
   padding: 20px;
 }
 
 .dashboard-container {
   display: flex;
   border: 1px solid gray;
-  margin: 20px 200px;
+  margin: 20px 50px;
 }
 
 .dashboard-container:hover {
@@ -101,5 +101,5 @@ form {
 }
 
 .dashboard-item {
-  flex: 6;
+  flex: 4;
 }

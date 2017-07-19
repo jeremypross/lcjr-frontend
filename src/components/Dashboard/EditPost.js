@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import update from "react-addons-update";
-import { browserHistory } from "react-router";
+import { withRouter, browserHistory } from "react-router";
 
 import UserNav from "../Nav/UserNav";
 
@@ -56,6 +56,7 @@ class EditPost extends Component {
       body: JSON.stringify({
         post: {
           title: this.state.post.title,
+          post_text: this.state.post.post_text,
           image_url: this.state.post.image_url,
           source_url: this.state.post.source_url,
           category: this.state.post.category,
@@ -67,7 +68,7 @@ class EditPost extends Component {
       results.json().then((data) => {
         this.setState({ post: data });
         console.log("EDIT POST data in PROMISE", this.state.post);
-        browserHistory.push('/dashboard');
+        this.props.push('/dashboard');
       })
     })
     .catch((err) => {
@@ -80,19 +81,24 @@ class EditPost extends Component {
       <div id="main-page">
         <div className="form-container">
           <form onSubmit={this.editPost.bind(this)}>
-            <label>Edit Title:
+            <h3>Edit Post</h3>
+            <label>Title:
               <br />
               <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)}></input><br />
             </label>
-            <label>Edit Source URL:
+            <label>Post Text:
+              <br />
+              <textarea name="post_text" value={this.state.post.post_text} onChange={this.handleChange.bind(this)}></textarea><br />
+            </label>
+            <label>Source URL:
               <br />
               <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)}></input><br />
             </label>
-            <label>Edit Image URL:
+            <label>Image URL:
               <br />
               <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)}></input><br />
             </label>
-            <label>Edit Category:
+            <label>Category:
               <br />
               {/* <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br /> */}
               <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
