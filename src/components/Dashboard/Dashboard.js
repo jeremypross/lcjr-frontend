@@ -103,8 +103,9 @@ class Dashboard extends Component {
     return(
       <div id="main-page">
         <UserNav />
-        <h3>Add Post:</h3>
+        <h3></h3>
         <div className="form-container">
+          <h3></h3>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
@@ -120,10 +121,11 @@ class Dashboard extends Component {
             <button type="submit">Add Post</button>
           </form>
         </div>
-        <div className="dashboard-container">
+        <div >
           {this.state.posts.map((post) => {
             return(
-              <div key={post.id} className="dashboard-item">
+              <div key={post.id} className="dashboard-container">
+                <div className="dashboard-item">
                 <AuthoredPost
                   title={post.title}
                   image_url={post.image_url}
@@ -133,15 +135,17 @@ class Dashboard extends Component {
                   id={post.id}
                   user_id={post.user_id}
                 />
-                {/* <EditPost
+              </div>
+              <div className="dashboard-item">
+                <EditPost
+                  id={post.id}
                   title={post.title}
-                  image_url={post.image_url}
                   source_url={post.source_url}
                   image_url={post.image_url}
                   category={post.category}
-                  id={post.id}
                   user_id={post.user_id}
-                /> */}
+                />
+              </div>
               </div>
             );
           })}

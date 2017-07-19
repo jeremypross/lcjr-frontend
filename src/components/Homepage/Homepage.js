@@ -37,7 +37,7 @@ class Homepage extends Component {
               return(
                 <div key={post.id} className="post">
                   <h3>{post.title}</h3>
-                  <img src={post.image_url} width="275"/>
+                  <img src={post.image_url} width="100%"/>
                   <p>Source: <a href={post.source_url}>{post.source_url}</a><br/></p>
                   <p>Category: {post.category}</p>
                 </div>

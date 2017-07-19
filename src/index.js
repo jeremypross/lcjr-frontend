@@ -18,7 +18,7 @@ ReactDom.render(
     <Route path="/signup" component={Signup} />
     <Route path="/login" component={Login} />
     <Route path="/dashboard" component={Dashboard} />
-    <Route path="/dashboard/edit" component={EditPost} />
+    <Route path="/:id/edit" component={EditPost} />
   </Router>
   , document.getElementById("app")
 );

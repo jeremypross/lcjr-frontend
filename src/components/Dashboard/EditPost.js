@@ -9,8 +9,7 @@ class EditPost extends Component {
     super(props);
 
     this.state = {
-      post: {},
-      id: 26
+      post: {}
     }
   }
 
@@ -27,8 +26,8 @@ class EditPost extends Component {
     console.log("NEW STATE after handle change", this.state.post)
   }
 
-  componentDidMount() {
-    fetch(`http://localhost:3000/posts/${this.state.id}/edit`, {
+  componentWillMount() {
+    fetch(`http://localhost:3000/posts/${this.props.id}/edit`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -47,8 +46,9 @@ class EditPost extends Component {
   }
 
   editPost(event) {
+    event.preventDefault();
     const user_id = window.localStorage.getItem('user_id');
-    fetch(`http://localhost:3000/posts/${this.state.id}`, {
+    fetch(`http://localhost:3000/posts/${this.props.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -66,7 +66,8 @@ class EditPost extends Component {
     .then((results) => {
       results.json().then((data) => {
         this.setState({ post: data });
-        console.log("EDIT POST data in PROMISE", data);
+        console.log("EDIT POST data in PROMISE", this.state.post);
+        browserHistory.push('/dashboard');
       })
     })
     .catch((err) => {
@@ -77,22 +78,37 @@ class EditPost extends Component {
   render() {
     return(
       <div id="main-page">
-        <UserNav />
-        <h3>Edit Post:</h3>
         <div className="form-container">
           <form onSubmit={this.editPost.bind(this)}>
-            <p>Title</p>
-            <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)}></input><br />
-            <p>Source URL</p>
-            <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)}></input><br />
-            <p>Image URL</p>
-            <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)}></input><br />
-            <p>Category</p>
-            <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br />
-            <button type="submit">Edit Post</button>
+            <label>Edit Title:
+              <br />
+              <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)}></input><br />
+            </label>
+            <label>Edit Source URL:
+              <br />
+              <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)}></input><br />
+            </label>
+            <label>Edit Image URL:
+              <br />
+              <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)}></input><br />
+            </label>
+            <label>Edit Category:
+              <br />
+              {/* <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br /> */}
+              <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
+                <option value="">Category:</option>
+                <option value="Art">Art</option>
+                <option value="Architecture & Design">Architecture & Design</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Food">Food</option>
+                <option value="Music">Music</option>
+              </select>
+            </label>
+            <br />
+            <br />
+            <button type="submit" value="submit">Edit Post</button>
           </form>
         </div>
-
       </div>
     );
   }
