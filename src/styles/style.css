@@ -83,14 +83,15 @@ input:focus {
   flex: 2;
 }
 
+
 .category-icon {
   font-size: 1.5em;
-  box-shadow: 1px 1px 1px;
+  border: 1px dotted lightgray;
   padding: 2px;
 }
 
 .post:hover {
-  border: 3px solid lightgray;
+  border: 2px solid lightgray;
   transition: .5s;
 }
 
@@ -120,6 +121,12 @@ input:focus {
 
 .dashboard-item {
   flex: 4;
+}
+
+.show-container {
+  padding: 120px 100px 0 100px;
+  text-align: center;
+
 }
 
 @media(max-width: 768px) {

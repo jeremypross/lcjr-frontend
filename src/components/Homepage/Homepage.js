@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import update from "react-addons-update";
+import { browserHistory, Link } from "react-router";
+
 import Nav from "../Nav/Nav";
 
 import PostShow from "../Homepage/PostShow";
@@ -50,26 +52,11 @@ class Homepage extends Component {
             {this.state.posts.map((post) => {
               return(
                 <div key={post.id} className="post">
+                  <Link to={`/${post.id}`}>
                   <h3>{post.title}</h3>
+                  </Link>
                   <img src={post.image_url} width="100%"/>
-
-                  {this.state.isVisible ?
-                    <PostShow
-                      id={post.id}
-                      title={post.title}
-                      post_text={post.post_text}
-                      source_url={post.source_url}
-                      image_url={post.image_url}
-                      category={post.category}
-                      showLess={this.showLess.bind(this)}
-                    /> : null}
-
                   <p><span className="category-icon">{post.category}</span></p>
-
-                  {this.state.buttonVisible ?
-                    <button type="submit" onClick={this.showMore.bind(this)}> More:</button>
-                  : null}
-
                 </div>
               )
             })}
