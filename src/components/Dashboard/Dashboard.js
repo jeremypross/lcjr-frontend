@@ -126,33 +126,22 @@ class Dashboard extends Component {
             <button type="submit">Add Post</button>
           </form>
         </div>
-        <div >
+        <div>
           {this.state.posts.map((post) => {
             return(
               <div key={post.id} className="dashboard-container">
                 <div className="dashboard-item">
-                <AuthoredPost
-                  title={post.title}
-                  post_text={post.post_text}
-                  image_url={post.image_url}
-                  source_url={post.source_url}
-                  image_url={post.image_url}
-                  category={post.category}
-                  id={post.id}
-                  user_id={post.user_id}
-                />
-              </div>
-              <div className="dashboard-item">
-                <EditPost
-                  id={post.id}
-                  title={post.title}
-                  post_text={post.text}
-                  source_url={post.source_url}
-                  image_url={post.image_url}
-                  category={post.category}
-                  user_id={post.user_id}
-                />
-              </div>
+                  <AuthoredPost
+                    title={post.title}
+                    post_text={post.post_text}
+                    image_url={post.image_url}
+                    source_url={post.source_url}
+                    image_url={post.image_url}
+                    category={post.category}
+                    id={post.id}
+                    user_id={post.user_id}
+                  />
+                </div>
               </div>
             );
           })}

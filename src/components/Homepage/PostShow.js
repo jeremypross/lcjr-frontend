@@ -31,7 +31,7 @@ class PostShow extends Component {
 
   render() {
     return(
-      <div key={this.props.id}>
+      <div key={this.state.post.post.id}>
         <Nav />
         <div className="show-container">
           <h3>{this.state.post.post.title}</h3>

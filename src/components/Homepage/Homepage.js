@@ -11,9 +11,7 @@ class Homepage extends Component {
     super(props);
 
     this.state = {
-      posts: [],
-      isVisible: false,
-      buttonVisible: true
+      posts: []
     };
   }
 
@@ -30,16 +28,6 @@ class Homepage extends Component {
     .catch((err) => {
       console.log("ERROR:", err);
     });
-  }
-
-  showMore() {
-    this.setState({ isVisible: true })
-    this.setState({ buttonVisible: false })
-  }
-
-  showLess() {
-    this.setState({ isVisible: false })
-    this.setState({ buttonVisible: true })
   }
 
 

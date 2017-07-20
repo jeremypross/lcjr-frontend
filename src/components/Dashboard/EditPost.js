@@ -30,7 +30,7 @@ class EditPost extends Component {
   }
 
   componentWillMount() {
-    fetch(`http://localhost:3000/posts/${this.props.id}/edit`, {
+    fetch(`http://localhost:3000/posts/${this.props.params.id}/edit`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -52,7 +52,7 @@ class EditPost extends Component {
   editPost(event) {
     event.preventDefault();
     const user_id = window.localStorage.getItem('user_id');
-    fetch(`http://localhost:3000/posts/${this.props.id}`, {
+    fetch(`http://localhost:3000/posts/${this.props.params.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -72,7 +72,7 @@ class EditPost extends Component {
       results.json().then((data) => {
         this.setState({ post: data });
         console.log("EDIT POST data in PROMISE", this.state.post);
-        browserHistory.push('/');
+        browserHistory.push('/dashboard');
       })
     })
     .catch((err) => {
