@@ -41,10 +41,12 @@ class Homepage extends Component {
               return(
                 <div key={post.id} className="post">
                   <Link to={`/${post.id}`}>
-                  <h3>{post.title}</h3>
+                    <h3>{post.title}</h3>
                   </Link>
                   <img src={post.image_url} width="100%"/>
-                  <p><span className="category-icon">{post.category}</span></p>
+                  <p>
+                    <span className="category-icon">{post.category}</span>
+                  </p>
                 </div>
               )
             })}

@@ -114,7 +114,7 @@ class Dashboard extends Component {
             <input name="source_url" type="text" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
             <select name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
               <option value="">Category:</option>
-              <option value="&#x02A53;">Art</option>
+              <option value="&#127912;">Art</option>
               <option value="	&#8962;">Architecture & Design</option>
               <option value="	&#128085;">Fashion</option>
               <option value="&#127859;">Food</option>

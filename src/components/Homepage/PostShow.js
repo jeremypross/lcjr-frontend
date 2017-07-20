@@ -34,6 +34,9 @@ class PostShow extends Component {
       <div key={this.state.post.post.id}>
         <Nav />
         <div className="show-container">
+          <div className="link-to-home">
+            <Link className="link-home" to="/">&#x021A9;</Link>
+          </div>
           <h3>{this.state.post.post.title}</h3>
           <img src={this.state.post.post.image_url} width="200px"/>
           <p>{this.state.post.post.post_text}</p>

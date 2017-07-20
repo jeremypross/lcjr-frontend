@@ -42,16 +42,23 @@ class AuthoredPost extends Component {
       <div key={this.props.id} style={this.state.isVisible}>
         <div className="authored_posts">
           <h3>{this.props.title}</h3>
-          <img src={this.props.image_url} width="200px" />
+          <img src={this.props.image_url} width="250px" />
           <p>{this.props.post_text}</p>
-          <p><a href={this.props.source_url} target="_blank">Source URL</a></p>
-          <p>Category: {this.props.category}</p>
-          <Link to={`/${this.props.id}/edit`}>
-            <button>Edit Post</button>
-          </Link>
-          <Link to="/dashboard">
-            <button onClick={this.handleDelete.bind(this)}>Delete Post</button>
-          </Link>
+
+          <div className="source-category">
+            <p><a href={this.props.source_url} target="_blank">Source URL</a></p>
+            <p className="dashboard-category-icon">{this.props.category}</p>
+          </div>
+
+          <div className="dashboard-button-container">
+            <Link to={`/${this.props.id}/edit`}>
+              <button>Edit Post</button>
+            </Link>
+            <Link to="/dashboard">
+              <button onClick={this.handleDelete.bind(this)}>&times;</button>
+            </Link>
+          </div>
+
         </div>
       </div>
     );

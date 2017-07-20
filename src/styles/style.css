@@ -85,8 +85,7 @@ input:focus {
 
 
 .category-icon {
-  font-size: 1.5em;
-  border: 1px dotted lightgray;
+  font-size: 1.7em;
   padding: 2px;
 }
 
@@ -127,6 +126,40 @@ input:focus {
   padding: 120px 100px 0 100px;
   text-align: center;
 
+}
+
+.dashboard-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.source-category {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dashboard-category-icon {
+  font-size: 2em;
+  margin: 0;
+  padding-top: 10px;
+
+}
+
+.link-to-home {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  font-size: 2em;
+}
+
+.link-to-home:hover {
+  font-weight: bold;
+  font-size: 2.1em;
+  transition: .1s;
+}
+
+.link-home {
+  text-decoration: none;
 }
 
 @media(max-width: 768px) {
