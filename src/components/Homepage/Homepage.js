@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import update from "react-addons-update";
 import Nav from "../Nav/Nav";
 
+import PostShow from "../Homepage/PostShow";
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts: []
+      posts: [],
+      isVisible: false,
+      buttonVisible: true
     };
   }
 
@@ -26,9 +30,19 @@ class Homepage extends Component {
     });
   }
 
+  showMore() {
+    this.setState({ isVisible: true })
+    this.setState({ buttonVisible: false })
+  }
+
+  showLess() {
+    this.setState({ isVisible: false })
+    this.setState({ buttonVisible: true })
+  }
+
 
   render() {
-    return (
+    return(
       <div id="main-page">
           <Nav />
           <h2></h2>
@@ -38,15 +52,28 @@ class Homepage extends Component {
                 <div key={post.id} className="post">
                   <h3>{post.title}</h3>
                   <img src={post.image_url} width="100%"/>
-                  <p>{post.post_text}</p>
-                  <p>Source: <a href={post.source_url}>{post.source_url}</a><br/></p>
-                  <p><strong><i>{post.category}</i></strong></p>
+
+                  {this.state.isVisible ?
+                    <PostShow
+                      id={post.id}
+                      title={post.title}
+                      post_text={post.post_text}
+                      source_url={post.source_url}
+                      image_url={post.image_url}
+                      category={post.category}
+                      showLess={this.showLess.bind(this)}
+                    /> : null}
+
+                  <p><span className="category-icon">{post.category}</span></p>
+
+                  {this.state.buttonVisible ?
+                    <button type="submit" onClick={this.showMore.bind(this)}> More:</button>
+                  : null}
+
                 </div>
               )
             })}
-
           </div>
-
       </div>
     );
   }

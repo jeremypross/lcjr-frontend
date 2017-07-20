@@ -6,6 +6,7 @@ import "./styles/normalize.css";
 import "./styles/style.css";
 
 import Homepage from "./components/Homepage/Homepage";
+import PostShow from "./components/Homepage/PostShow";
 import Login from "./components/Users/Login";
 import Signup from "./components/Users/Signup";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -19,6 +20,7 @@ ReactDom.render(
     <Route path="/login" component={Login} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/:id/edit" component={EditPost} />
+    <Route path="/:id" component={PostShow} />
   </Router>
   , document.getElementById("app")
 );

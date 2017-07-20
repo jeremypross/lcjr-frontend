@@ -55,12 +55,13 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div id="login-form">
+        <Nav />
+        <div>
           <div className="container">
-            <Nav />
-            <h3>LOG IN</h3>
+            <h3></h3>
             <div className="form-container">
-              <form onSubmit={this.handleSubmit.bind(this)}>
+              <form id="login-form" onSubmit={this.handleSubmit.bind(this)}>
+                <h3>LOG IN</h3>
                 <input name="email" type="email" placeholder="email" onChange={this.handleChange.bind(this)} />
                 <br/>
                 <input name="password" type="password" placeholder="password" onChange={this.handleChange.bind(this)} />

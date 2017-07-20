@@ -9,7 +9,10 @@ class EditPost extends Component {
     super(props);
 
     this.state = {
-      post: {}
+      post: {},
+      isVisible: {
+        display: "block"
+      },
     }
   }
 
@@ -45,6 +48,7 @@ class EditPost extends Component {
     });
   }
 
+
   editPost(event) {
     event.preventDefault();
     const user_id = window.localStorage.getItem('user_id');
@@ -68,7 +72,7 @@ class EditPost extends Component {
       results.json().then((data) => {
         this.setState({ post: data });
         console.log("EDIT POST data in PROMISE", this.state.post);
-        this.props.push('/dashboard');
+        browserHistory.push('/');
       })
     })
     .catch((err) => {
@@ -79,7 +83,7 @@ class EditPost extends Component {
   render() {
     return(
       <div id="main-page">
-        <div className="form-container">
+        <div className="form-container" id="edit-post-form" style={this.state.isVisible}>
           <form onSubmit={this.editPost.bind(this)}>
             <h3>Edit Post</h3>
             <label>Title:
@@ -103,11 +107,12 @@ class EditPost extends Component {
               {/* <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br /> */}
               <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
                 <option value="">Category:</option>
-                <option value="Art">Art</option>
-                <option value="Architecture & Design">Architecture & Design</option>
-                <option value="Fashion">Fashion</option>
-                <option value="Food">Food</option>
-                <option value="Music">Music</option>
+                <option value="&#x02A53;">Art</option>
+                <option value="	&#8962;">Architecture & Design</option>
+                <option value="	&#128085;">Fashion</option>
+                <option value="&#127859;">Food</option>
+                <option value="&#9836;">Music</option>
+                <option value="&#128240;">News</option>
               </select>
             </label>
             <br />

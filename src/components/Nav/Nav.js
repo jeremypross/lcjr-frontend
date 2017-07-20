@@ -16,21 +16,21 @@ class Nav extends Component {
     };
   }
 
-  componentDidMount() {
-    if(window.localStorage.getItem('loggedin')) {
-      this.setState({loggedOut: {display: 'none'}});
-      this.setState({loggedIn: {display: 'inline-block'}});
-      this.setState({logged: true });
-    } else {
-      this.setState({loggedIn: {display: 'none'}});
-      this.setState({loggedOut:{display: 'inline-block'}});
-    }
-  }
+  // componentDidMount() {
+  //   if(window.localStorage.getItem('loggedin')) {
+  //     this.setState({loggedOut: {display: 'none'}});
+  //     this.setState({loggedIn: {display: 'inline-block'}});
+  //     this.setState({logged: true });
+  //   } else {
+  //     this.setState({loggedIn: {display: 'none'}});
+  //     this.setState({loggedOut:{display: 'inline-block'}});
+  //   }
+  // }
 
   render() {
     return (
       <div id="nav">
-        <h1>VANROSS</h1>
+        <h1>vanROSS</h1>
         <ul id="nav-bar">
           <li>
             <Link className="nav-link" to="/">HOME</Link>

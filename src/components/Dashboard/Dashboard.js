@@ -105,20 +105,21 @@ class Dashboard extends Component {
       <div id="main-page">
         <UserNav />
         <h3></h3>
-        <div className="form-container">
+        <div className="form-container" id="add-post-form">
           <form onSubmit={this.handleSubmit.bind(this)}>
             <h3>Add Post</h3>
             <input name="title" type="text" placeholder="Title" onChange={this.handleChange.bind(this)}></input><br/>
-            <input name="post_text" type="text" placeholder="Post Text" onChange={this.handleChange.bind(this)}></input><br/>
+            <textarea name="post_text" type="text" placeholder="Post Text" onChange={this.handleChange.bind(this)}></textarea><br/>
             <input name="image_url" type="text" placeholder="Image URL" onChange={this.handleChange.bind(this)}></input><br/>
             <input name="source_url" type="text" placeholder="Source URL" onChange={this.handleChange.bind(this)}></input><br/>
             <select name="category" type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
               <option value="">Category:</option>
-              <option value="Art">Art</option>
-              <option value="Architecture & Design">Architecture & Design</option>
-              <option value="Fashion">Fashion</option>
-              <option value="Food">Food</option>
-              <option value="Music">Music</option>
+              <option value="&#x02A53;">Art</option>
+              <option value="	&#8962;">Architecture & Design</option>
+              <option value="	&#128085;">Fashion</option>
+              <option value="&#127859;">Food</option>
+              <option value="&#9836;">Music</option>
+              <option value="&#128240;">News</option>
             </select>
             <br />
             <br />

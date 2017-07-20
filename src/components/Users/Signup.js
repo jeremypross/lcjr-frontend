@@ -70,8 +70,9 @@ class SignUp extends Component {
         <div className="container">
           <div className="form-container">
             <Nav />
-            <h3>CREATE AN ACCOUNT</h3>
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <h3></h3>
+            <form id="signup-form" onSubmit={this.handleSubmit.bind(this)}>
+              <h3>CREATE AN ACCOUNT</h3>
               <input name="first_name" type="text" placeholder="First Name" onChange={this.handleChange.bind(this)} /><br/>
               <input name="last_name" type="text" placeholder="Last Name" onChange={this.handleChange.bind(this)} /><br/>
               <input name="email" type="email" placeholder="Email Address" onChange={this.handleChange.bind(this)} /><br/>
