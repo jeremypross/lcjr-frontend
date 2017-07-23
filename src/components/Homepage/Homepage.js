@@ -43,7 +43,9 @@ class Homepage extends Component {
                   <Link to={`/${post.id}`}>
                     <h3>{post.title}</h3>
                   </Link>
-                  <img src={post.image_url} width="100%"/>
+                  <Link to={`/${post.id}`}>
+                  <img src={post.image_url} height="200px"/>
+                  </Link>
                   <p>
                     <span className="category-icon">{post.category}</span>
                   </p>

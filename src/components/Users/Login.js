@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import update from "react-addons-update";
+import { Link, browserHistory } from "react-router";
+
 import Nav from "../Nav/Nav";
 
 
@@ -69,6 +71,8 @@ class Login extends Component {
                 <br/>
                 <button className="login-button" type="submit">Log In</button>
               </form>
+              <br />
+              <Link to="/signup">Create an Account</Link>
             </div>
           </div>
         </div>

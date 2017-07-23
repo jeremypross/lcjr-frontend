@@ -30,7 +30,7 @@ class AuthoredPost extends Component {
     })
     .then(() => {
       this.setState({ isVisible: { display: "none"}});
-      browserHistory.push('/');
+      browserHistory.push('/dashboard');
     })
     .catch((err) => {
       console.log("ERROR:", err);

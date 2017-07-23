@@ -8,6 +8,11 @@ h1,h2,h3{
   padding: 15px;
 }
 
+button {
+  border-radius: 2px;
+  background-color: lightblue;
+  color: white;
+}
 
 input {
   margin: 5px 0;
@@ -31,7 +36,7 @@ input:focus {
 
 #nav {
   text-align: center;
-  background-color: lightgray;
+  background-color: lightblue;
   z-index: 5;
   position: fixed;
   width: 100%;
@@ -58,12 +63,21 @@ input:focus {
   text-align: center;
 }
 
-#add-post-form, #login-form, #signup-form {
-  margin-top: 85px;
+#add-post-form, #login-form, #signup-form, #contact-form {
+  margin-top: 90px;
 }
 
 #edit-post-form {
   margin: 20px;
+}
+
+#homepage-link {
+  color:black;
+  text-decoration: none;
+}
+
+#homepage-link:hover {
+  text-decoration: line-through;
 }
 
 .blog-roll {

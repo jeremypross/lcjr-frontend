@@ -20,8 +20,8 @@ class PostShow extends Component {
     })
     .then((results) => {
       results.json().then((data) => {
-        this.setState({ post: data })
-        console.log("componentDidMount() data", this.state.post.post);
+        this.setState({ post: data.post })
+        console.log("componentDidMount() data", this.state.post);
       })
     })
     .catch((err) => {
@@ -31,17 +31,17 @@ class PostShow extends Component {
 
   render() {
     return(
-      <div key={this.state.post.post.id}>
+      <div key={this.props.params.id}>
         <Nav />
         <div className="show-container">
           <div className="link-to-home">
             <Link className="link-home" to="/">&#x021A9;</Link>
           </div>
-          <h3>{this.state.post.post.title}</h3>
-          <img src={this.state.post.post.image_url} width="200px"/>
-          <p>{this.state.post.post.post_text}</p>
-          <p><a href={this.state.post.post.source_url}>Source URL</a></p>
-          <p><span className="category-icon">{this.state.post.post.category}</span></p>
+          <h2>{this.state.post.title}</h2>
+          <img src={this.state.post.image_url} height="260px"/>
+          <p>{this.state.post.post_text}</p>
+          <p><a href={this.state.post.source_url}>Source URL</a></p>
+          <p><span className="category-icon">{this.state.post.category}</span></p>
         </div>
       </div>
     );

@@ -17,7 +17,7 @@ class UserNav extends Component {
     return (
       <div id="nav">
         <ul id="nav-bar">
-          <h1>Admin Dashboard</h1>
+          <h1><a id="homepage-link" href="/">Admin Dashboard</a></h1>
           <li>
             <Link className="nav-link" to="/">Home</Link>
           </li>

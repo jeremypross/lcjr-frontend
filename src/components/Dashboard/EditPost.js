@@ -104,7 +104,6 @@ class EditPost extends Component {
             </label>
             <label>Category:
               <br />
-              {/* <input name="category" value={this.state.post.category} onChange={this.handleChange.bind(this)}></input><br /> */}
               <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
                 <option value="">Category:</option>
                 <option value="&#127912;">Art</option>
@@ -115,8 +114,8 @@ class EditPost extends Component {
                 <option value="&#128240;">News</option>
               </select>
             </label>
-            <br />
-            <br />
+              <br />
+              <br />
             <button type="submit" value="submit">Edit Post</button>
           </form>
         </div>
