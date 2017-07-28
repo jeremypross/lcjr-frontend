@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import update from "react-addons-update";
-import { withRouter, browserHistory } from "react-router";
+import { Router, browserHistory } from "react-router";
 
 import UserNav from "../Nav/UserNav";
 
@@ -88,30 +88,30 @@ class EditPost extends Component {
             <h3>Edit Post</h3>
             <label>Title:
               <br />
-              <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)}></input><br />
+              <input name="title" value={this.state.post.title} onChange={this.handleChange.bind(this)} /><br />
             </label>
             <label>Post Text:
               <br />
-              <textarea name="post_text" value={this.state.post.post_text} onChange={this.handleChange.bind(this)}></textarea><br />
+              <textarea name="post_text" value={this.state.post.post_text} onChange={this.handleChange.bind(this)} /><br />
             </label>
             <label>Source URL:
               <br />
-              <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)}></input><br />
+              <input name="source_url" value={this.state.post.source_url} onChange={this.handleChange.bind(this)} /><br />
             </label>
             <label>Image URL:
               <br />
-              <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)}></input><br />
+              <input name="image_url" value={this.state.post.image_url} onChange={this.handleChange.bind(this)} /><br />
             </label>
             <label>Category:
               <br />
-              <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)} placeholder="Category" >
+              <select name="category" value={this.state.post.category} type="text" placeholder="Category" onChange={this.handleChange.bind(this)}>
                 <option value="">Category:</option>
-                <option value="&#127912;">Art</option>
-                <option value="	&#8962;">Architecture & Design</option>
-                <option value="	&#128085;">Fashion</option>
-                <option value="&#127859;">Food</option>
-                <option value="&#9836;">Music</option>
-                <option value="&#128240;">News</option>
+                <option value="Art">Art</option>
+                <option value="Design">Design</option>
+                <option value="Food">Food</option>
+                <option value="Music">Music</option>
+                <option value="News">News</option>
+                <option value="Style">Style</option>
               </select>
             </label>
               <br />

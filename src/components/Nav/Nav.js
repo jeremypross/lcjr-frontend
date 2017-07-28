@@ -39,6 +39,7 @@ class Nav extends Component {
             <Link className="nav-link" to="/contact">CONTACT</Link>
           </li>
 
+
         </ul>
       </div>
     );

@@ -1,6 +1,5 @@
 * {
   font-family: 'Roboto', sans-serif;
-
 }
 
 h1,h2,h3{
@@ -63,6 +62,20 @@ input:focus {
   text-align: center;
 }
 
+.category-nav {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.category-button {
+  margin: 0 5px;
+  color: black;
+}
+
+.category-button:focus {
+  outline:0;
+}
+
 #add-post-form, #login-form, #signup-form, #contact-form {
   margin-top: 90px;
 }
@@ -81,7 +94,6 @@ input:focus {
 }
 
 .blog-roll {
-  margin-top: 85px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -180,4 +192,5 @@ input:focus {
   .dashboard-container {
     display: block;
   }
+
 }
