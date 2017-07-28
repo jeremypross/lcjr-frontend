@@ -27,8 +27,8 @@ input:focus {
 }
 
 #main-page {
-  /*background-color: lightgray;*/
   z-index: 2;
+  /*display: flex;*/
 }
 
 /* NAV */
@@ -64,12 +64,17 @@ input:focus {
 
 .category-nav {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .category-button {
-  margin: 0 5px;
+  margin: 10px 20px 10px 10px;
   color: black;
+  background-color: white;
+  border-radius: 2px;
 }
 
 .category-button:focus {
@@ -85,7 +90,7 @@ input:focus {
 }
 
 #homepage-link {
-  color:black;
+  color: black;
   text-decoration: none;
 }
 
@@ -98,6 +103,7 @@ input:focus {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
+  /*padding-top: 85px;*/
 }
 
 .post {

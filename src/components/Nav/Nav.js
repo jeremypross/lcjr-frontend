@@ -30,7 +30,7 @@ class Nav extends Component {
   render() {
     return (
       <div id="nav">
-        <h1><a id="homepage-link" href="/">JPLRLVAC</a></h1>
+        <h1><a id="homepage-link" href="/">LCJR</a></h1>
         <ul id="nav-bar">
           <li>
             <Link className="nav-link" to="/login">LOG IN</Link>

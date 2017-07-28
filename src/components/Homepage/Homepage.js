@@ -118,19 +118,18 @@ class Homepage extends Component {
     });
   }
 
-
   render() {
     return(
       <div id="main-page">
           <Nav />
-          <h2></h2>
           <div className="category-nav">
-            <button className="category-button" onClick={this.findArtPosts.bind(this)}>ART</button>
-            <button className="category-button" onClick={this.findDesignPosts.bind(this)}>DESIGN</button>
-            <button className="category-button" onClick={this.findFoodPosts.bind(this)}>FOOD</button>
-            <button className="category-button" onClick={this.findMusicPosts.bind(this)}>MUSIC</button>
-            <button className="category-button" onClick={this.findNewsPosts.bind(this)}>NEWS</button>
-            <button className="category-button" onClick={this.findStylePosts.bind(this)}>STYLE</button>
+            <button className="category-button" onClick={this.componentWillMount.bind(this)}>ALL</button>
+            <button className="category-button" onClick={this.findArtPosts.bind(this)}>&#127912;</button>
+            <button className="category-button" onClick={this.findDesignPosts.bind(this)}>&#8962;</button>
+            <button className="category-button" onClick={this.findFoodPosts.bind(this)}>&#127859;</button>
+            <button className="category-button" onClick={this.findMusicPosts.bind(this)}>&#9836;</button>
+            <button className="category-button" onClick={this.findNewsPosts.bind(this)}>&#128240;</button>
+            <button className="category-button" onClick={this.findStylePosts.bind(this)}>&#128085;</button>
           </div>
           <div className="blog-roll">
             {this.state.posts.map((post) => {
@@ -149,7 +148,6 @@ class Homepage extends Component {
               );
             })}
           </div>
-
       </div>
     );
   }
