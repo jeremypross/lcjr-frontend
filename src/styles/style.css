@@ -64,10 +64,11 @@ input:focus {
 
 .category-nav {
   text-align: center;
-  padding-top: 140px;
+  padding-top: 125px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  /*border: 2px solid red;*/
 }
 
 .category-button {
@@ -117,7 +118,7 @@ input:focus {
 
 
 .category-icon {
-  font-size: 1.7em;
+  font-size: 1em;
   padding: 2px;
 }
 
