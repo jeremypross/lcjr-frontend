@@ -29,6 +29,7 @@
   "author": "Jeremy Ross",
   "license": "MIT",
   "dependencies": {
+    "mime": "2.4.4",
     "object-assign": "4.1.0",
     "react": "15.5.4",
     "react-addons-update": "15.6.0",
